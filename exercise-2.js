@@ -23,4 +23,4 @@ const printResults = (results) => {
 };
 
 // Execute
-searchName("an", 0, printResults); // Output: "Limit harus berupa angka dan lebih dari 0"
+searchName("an", 3, printResults); // Output: [ 'Alexandra', 'Amanda', 'Diana' ]
