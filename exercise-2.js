@@ -1,23 +1,23 @@
-const names = ["Abigail", "Alexandra", "Alison", "Amanda", "Angela", "Bella", "Carol", "Caroline", "Carolyn", "Deirdre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"];
+const name = ["Abigail", "Alexandra", "Alison", "Amanda", "Angela", "Bella", "Carol", "Caroline", "Carolyn", "Deirdre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"];
 
 const searchName = (keyword, limit, callback) => {
-  if (typeof keyword !== "string" || typeof limit !== "number" || limit <= 0) {
-    return callback("Input tidak valid");
+  // Validate input
+  if (typeof keyword !== "string") {
+    return console.log("Keyword harus berupa string");
+  }
+  if (typeof limit !== "number" || limit <= 0) {
+    return console.log("Limit harus berupa angka dan lebih dari 0");
   }
 
-  const result = names.filter((name) => name.toLowerCase().includes(keyword.toLowerCase()));
+  // Search for a name
+  const results = name.filter((name) => name.includes(keyword));
 
-  const limitedResult = result.slice(0, limit);
-
-  callback(null, limitedResult);
+  // Call a callback with the search results
+  callback(results.slice(0, limit));
 };
 
-const displaySearchResult = (error, result) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(result);
-  }
+const printResults = (results) => {
+  console.log(results);
 };
 
-searchName("an", 3, displaySearchResult); // output : 'Alexandra', 'Amanda', 'Angela'
+searchName("an", 3, printResults); // Output: ["Alexandra", "Amanda", "Angela"]
