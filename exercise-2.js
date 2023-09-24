@@ -3,10 +3,12 @@ const name = ["Abigail", "Alexandra", "Alison", "Amanda", "Angela", "Bella", "Ca
 const searchName = (keyword, limit, callback) => {
   // Validate input
   if (typeof keyword !== "string") {
-    return console.log("Keyword harus berupa string");
+    callback("Keyword harus berupa string");
+    return;
   }
   if (typeof limit !== "number" || limit <= 0) {
-    return console.log("Limit harus berupa angka dan lebih dari 0");
+    callback("Limit harus berupa angka dan lebih dari 0");
+    return;
   }
 
   // Search for a name
@@ -20,4 +22,5 @@ const printResults = (results) => {
   console.log(results);
 };
 
-searchName("an", 3, printResults); // Output: ["Alexandra", "Amanda", "Angela"]
+// Execute
+searchName("an", 0, printResults); // Output: "Limit harus berupa angka dan lebih dari 0"
