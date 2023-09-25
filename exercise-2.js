@@ -12,7 +12,8 @@ const searchName = (keyword, limit, callback) => {
   }
 
   // Search for a name
-  const results = name.filter((name) => name.includes(keyword));
+  const lowercaseKeyword = keyword.toLowerCase();
+  const results = name.filter((name) => name.toLowerCase().includes(lowercaseKeyword));
 
   // Call a callback with the search results
   callback(results.slice(0, limit));
@@ -23,4 +24,4 @@ const printResults = (results) => {
 };
 
 // Execute
-searchName("an", 3, printResults); // Output: [ 'Alexandra', 'Amanda', 'Diana' ]
+searchName("An", 3, printResults); // Output: [ 'Alexandra', 'Amanda', 'Diana' ]
