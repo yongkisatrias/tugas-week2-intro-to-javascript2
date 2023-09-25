@@ -37,9 +37,15 @@ numbers.fill(0);
 
 console.log(numbers); // Output: [0, 0, 0, 0, 0]
 
-// 7. POP() = Used to remove the last element from an array and return that element.
-const fruits = ["apel", "mangga", "pisang", "ceri"];
-const removedFruit = fruits.pop();
+// 7. FIND() = Used to find the first element in the array that meets the conditions given in the form of a callback function.
+const people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 35 },
+];
+const person = people.find((person) => person.name === "Bob");
+
+console.log(person); // Output: { name: 'Bob', age: 30 }
 
 console.log(removedFruit); // Output: "ceri"
 console.log(fruits); // Output: [ 'apel', 'mangga', 'pisang' ]
